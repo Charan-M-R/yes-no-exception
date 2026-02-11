@@ -43,6 +43,7 @@ button {
 .no {
   background: #adb5bd;
   color: white;
+  transition: top 0.2s ease, left 0.2s ease;
 }
 
 /* Video overlay */
@@ -73,7 +74,7 @@ video {
 }
 
 .gif {
-  width: 120px;   /* try 100–140px */
+  width: 120px;  
   height: auto;
   margin: 16px auto;
   display: block;

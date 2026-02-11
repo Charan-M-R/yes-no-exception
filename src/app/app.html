@@ -1,7 +1,7 @@
 <div class="container">
   <div class="box">
 
-    <h2 *ngIf="!showResult">Adiiittii babyy, will you be my Valentine? 💕</h2>
+    <h2 *ngIf="!showResult">Adiiittii babyy, will you be my Valentine? 🥰</h2>
 
     <img 
       *ngIf="!showResult"
@@ -11,11 +11,21 @@
     />
 
     <div class="buttons" *ngIf="!showResult">
-      <button class="yes" (click)="onYes()">Yes 💖</button>
-      <button class="no" (click)="onNo()">No 😔</button>
+      <button #yesBtn class="yes" (click)="onYes()">Yes 💖</button>
+      <button *ngIf="noClickedOnce" [style.visibility]="'hidden'" ></button>
+       <button
+        #noBtn
+        class="no"
+        (click)="onNo()"
+        (mouseenter)="moveNoButton(noBtn, yesBtn)"
+        [ngStyle]="noStyle"
+      >
+        No 😔
+      </button>
+
     </div>
 
-    <h3 *ngIf="showResult === 'yes'">Yaaaay 💕</h3>
+    <h3 *ngIf="showResult === 'yes'">Yaaaay 🥰🥰</h3>
     <h3 *ngIf="showResult === 'no'">Oh no 😭. Eeeeeeee 😭😭😭</h3>
 
     <img
@@ -33,7 +43,7 @@
     />
 
     <button *ngIf="showResult" class="reset" (click)="reset()">
-      Back
+      {{ showResult==='yes' ? 'Back' : 'Try again 😡' }}
     </button>
 
   </div>
