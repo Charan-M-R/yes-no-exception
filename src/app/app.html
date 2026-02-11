@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="box">
+
+    <h2 *ngIf="!showResult">Adiiittii babyy, will you be my Valentine? 💕</h2>
+
+    <img 
+      *ngIf="!showResult"
+      src="assets/banana-cat.gif"
+      class="gif"
+      alt="Sad GIF"
+    />
+
+    <div class="buttons" *ngIf="!showResult">
+      <button class="yes" (click)="onYes()">Yes 💖</button>
+      <button class="no" (click)="onNo()">No 😔</button>
+    </div>
+
+    <h3 *ngIf="showResult === 'yes'">Yaaaay 💕</h3>
+    <h3 *ngIf="showResult === 'no'">Oh no 😭. Eeeeeeee 😭😭😭</h3>
+
+    <img
+      *ngIf="showResult === 'yes'"
+      src="assets/happy-cat.gif"
+      class="gif happygif"
+      alt="Happy GIF"
+    />
+
+    <img
+      *ngIf="showResult === 'no'"
+      src="assets/crying-cat.webp"
+      class="gif cryinggif"
+      alt="Sad GIF"
+    />
+
+    <button *ngIf="showResult" class="reset" (click)="reset()">
+      Back
+    </button>
+
+  </div>
+</div>
