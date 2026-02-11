@@ -41,26 +41,15 @@ export class AppComponent {
     this.playAudio('yes');
   }
 
-  onNo() {
+  onNo(noBtn: HTMLElement, yesBtn: HTMLElement) {
+    if(!this.noClickedOnce){
+      this.playAudio('no');
+    }
+    else {
+      this.moveNoButton(noBtn, yesBtn);
+    }
     this.noClickedOnce = true; 
-    this.playAudio('no');
   }
-
-  // moveNoButton() {
-  //   if (!this.noClickedOnce) return; 
-
-  //   const box = document.querySelector('.box') as HTMLElement;
-  //   if (!box) return;
-
-  //   const boxWidth = box.clientWidth;
-  //   const boxHeight = box.clientHeight;
-
-  //   const buttonWidth = 90;
-  //   const buttonHeight = 40;
-
-  //   this.noLeft = Math.random() * (boxWidth - buttonWidth);
-  //   this.noTop = Math.random() * (boxHeight - buttonHeight);
-  // }
 
   moveNoButton(noBtn: HTMLElement, yesBtn: HTMLElement) {
     if (!this.noClickedOnce) return;
@@ -68,7 +57,6 @@ export class AppComponent {
     const box = document.querySelector('.box') as HTMLElement;
     if (!box) return;
 
-    // First time after phase 2 → move to Yes position
     if (!this.noStyle.position) {
 
       const yesRect = yesBtn.getBoundingClientRect();
@@ -83,7 +71,6 @@ export class AppComponent {
       return;
     }
 
-    // After that → random escape
     const randomLeft = Math.random() * (box.clientWidth - noBtn.offsetWidth);
     const randomTop = Math.random() * (box.clientHeight - noBtn.offsetHeight);
 

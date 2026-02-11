@@ -16,15 +16,14 @@
        <button
         #noBtn
         class="no"
-        (click)="onNo()"
-        (mouseenter)="moveNoButton(noBtn, yesBtn)"
+        (click)="onNo(noBtn, yesBtn)"
         [ngStyle]="noStyle"
       >
         No 😔
       </button>
 
     </div>
-
+<!-- (mouseenter)="moveNoButton(noBtn, yesBtn)" -->
     <h3 *ngIf="showResult === 'yes'">Yaaaay 🥰🥰</h3>
     <h3 *ngIf="showResult === 'no'">Oh no 😭. Eeeeeeee 😭😭😭</h3>
 
